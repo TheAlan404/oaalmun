@@ -9,9 +9,14 @@ const ActualContent = () => {
         <Stack>
             <Center h="90vh">
                 <Stack align="center">
+                    <Title order={2}>ÖAAL</Title>
                     <LogoWrapper />
-                    <Title>Burn The Order</Title>
+                    <Stack gap="sm" align="center">
+                        <Title order={2}>MUN</Title>
+                        <Title>Burn The Order</Title>
+                    </Stack>
                     <Text>blabla bla</Text>
+                    <Space h="xl" />
                     <Space h="xl" />
                 </Stack>
             </Center>
