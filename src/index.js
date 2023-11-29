@@ -27,7 +27,12 @@ const Root = () => {
         audioRef.current.loop = true;
         if (audioRef.current.paused) {
             audioRef.current.play()
-                .catch(err => console.error(err));
+                .catch(err => {
+                    window.onclick = () => {
+                        audioRef.current.play();
+                        window.onclick = ()=>{};
+                    };
+                });
         }
     }, [audioRef.current]);
 
