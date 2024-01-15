@@ -70,6 +70,7 @@ const PlanRender = ({ plan }) => {
                         variant="light"
                         component="a"
                         href={plan.link}
+                        disabled={!plan.link}
                     >
                         Apply
                     </Button>
