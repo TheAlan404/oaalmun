@@ -3,6 +3,7 @@ import unhcr from "../assets/blm.jpg"
 import ga3sochum from "../assets/ga3sochum.jpg"
 import ga6legal from "../assets/ga6legal.jpg"
 import unwomen from "../assets/unwomen.jpg"
+import russian from "../assets/russian.jpg"
 
 export const ranks = {
     SecretaryGeneral: "Secretary General",
@@ -284,6 +285,7 @@ export const committees = [
     },
     {
         name: "Четвёртый комитет СПЕЦПОЛ",
+        img: russian,
         bullets: [
             "Смягчение последствий нарушений прав человека в израильско-палестинском конфликте",
         ],
