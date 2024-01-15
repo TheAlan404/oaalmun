@@ -12,6 +12,8 @@ import { RegisterSection } from './Register';
 import { REGISTER_LINK } from './data/data';
 import firegif2 from "./assets/firegif2.gif"
 import metalpipe from "./assets/metalpipe.webm"
+import { Venue } from './Venue';
+import { Faq } from './Faq';
 
 const ActualContent = () => {
     return (
@@ -39,6 +41,16 @@ const ActualContent = () => {
                 <Space h="10vh" />
                 <Divider label="REGISTER" w="80%" />
                 <RegisterSection />
+
+                <Box id="faq" y="md" />
+                <Space h="10vh" />
+                <Divider label="FAQ" w="80%" />
+                <Faq />
+
+                <Box id="venue" y="md" />
+                <Space h="10vh" />
+                <Divider label="VENUE" w="80%" />
+                <Venue />
 
             </Stack>
             <Space h="50vh" />
@@ -218,6 +230,8 @@ const NavbarButtons = () => {
                 "Letters#letters",
                 "Crew#crew",
                 "Committees#committees",
+                "FAQ#faq",
+                "Venue#venue",
             ].map((a, i) => (
                 <Button
                     color='gray'
