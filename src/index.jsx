@@ -10,6 +10,7 @@ import FireWav from "./assets/fire.wav";
 
 import '@mantine/core/styles.css';
 import './other.css';
+import { Ashes } from './Ash';
 
 const PreferencesContext = React.createContext();
 
@@ -39,6 +40,8 @@ const Root = () => {
     return (
         <PreferencesContext.Provider value={[pref, setPref]}>
             <App />
+
+            {/* <Ashes /> */}
 
             <Affix position={{ bottom: "2em", right: "2em" }} style={{
                 zIndex: 999,

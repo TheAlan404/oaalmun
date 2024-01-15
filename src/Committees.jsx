@@ -1,5 +1,7 @@
-import { Accordion, Group, Image, List, SimpleGrid, Space, Stack, Text, Title } from "@mantine/core"
+import { Accordion, Group, Image, List, SimpleGrid, Space, Stack, Text, Title, useMantineTheme } from "@mantine/core"
 import { committees } from "./data/data"
+import { useMediaQuery } from "@mantine/hooks"
+import firegif1 from "./assets/firegif1.gif"
 
 export const CommitteesSection = () => {
     return (
@@ -19,10 +21,14 @@ export const CommitteesSection = () => {
 }
 
 export const CommitteeRender = ({ committee }) => {
+    let theme = useMantineTheme();
+    let isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+
     return (
         <Stack>
-            <SimpleGrid cols={2}>
+            <SimpleGrid cols={isMobile ? 1 : 2}>
                 <Stack>
+                    
                     <List>
                         {committee.bullets.map((bullet, i) => (
                             <List.Item>
@@ -30,9 +36,10 @@ export const CommitteeRender = ({ committee }) => {
                             </List.Item>
                         ))}
                     </List>
-                    <Group>
+                    <Text>{committee.desc}</Text>
+                    <Group justify="center">
                         {committee.people.map((person, i) => (
-                            <Stack align="center" key={i}>
+                            <Stack align="center" gap={0} key={i}>
                                 <Title order={4}>{person.name}</Title>
                                 <Text>{person.rank}</Text>
                             </Stack>
@@ -42,7 +49,7 @@ export const CommitteeRender = ({ committee }) => {
                 <Image
                     radius="md"
                     fit="contain"
-                    src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-9.png"
+                    src={firegif1}
                 />
             </SimpleGrid>
         </Stack>

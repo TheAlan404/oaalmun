@@ -10,7 +10,7 @@ export const PeopleSection = () => {
         <Accordion w={isMobile ? "100%" : "70%"}>
             {rankGroups.map((rankGroup, i) => (
                 <Accordion.Item value={rankGroup.name} key={i}>
-                    <Accordion.Control>{rankGroup.name}</Accordion.Control>
+                    <Accordion.Control fz={20}>{rankGroup.name.toUpperCase()}</Accordion.Control>
                     <Accordion.Panel>
                         <Group justify="center">
                         {rankGroup.ranks.flatMap(r => people.filter(p => p.rank == r)).map((person, i) => (

@@ -1,4 +1,4 @@
-import { AppShell, Group, Burger, Box, Center, Container, Paper, Transition, Stack, Title, Text, Divider, Button, Space, Anchor, Code } from '@mantine/core'
+import { AppShell, Group, Burger, Box, Center, Container, Paper, Transition, Stack, Title, Text, Divider, Button, Space, Anchor, Code, BackgroundImage } from '@mantine/core'
 import { UnstyledButton } from '@mantine/core';
 import { useDisclosure, useHover } from '@mantine/hooks';
 
@@ -10,33 +10,42 @@ import { useEffect } from 'react';
 import { CommitteesSection } from './Committees';
 import { RegisterSection } from './Register';
 import { REGISTER_LINK } from './data/data';
+import firegif2 from "./assets/firegif2.gif"
 
 const ActualContent = () => {
     return (
         <Stack align='center'>
             <Box id="" />
-            <Center h="60vh">
-                <Stack align="center">
-                    <Title order={2}>ÖAAL</Title>
-                    <LogoWrapper />
-                    <Stack gap="sm" align="center">
-                        <Title order={2}>MUN</Title>
-                        <Title>Burn The Order</Title>
+            <BackgroundImage
+                src={firegif2}
+                style={{
+                    backgroundColor: "#fd7e14f5",
+                    backgroundBlendMode: "luminosity",
+                }}
+            >
+                <Center h="90vh">
+                    <Stack align="center">
+                        <Title order={2}>ÖAAL</Title>
+                        <LogoWrapper />
+                        <Stack gap="sm" align="center">
+                            <Title order={2}>MUN</Title>
+                            <Title>Burn The Order</Title>
+                        </Stack>
+                        <Countdown />
+                        <Button
+                            color="red"
+                            variant='light'
+                            component='a'
+                            href="#register"
+                            size="lg"
+                        >
+                            Register Now
+                        </Button>
+                        <Space h="xl" />
+                        <Space h="xl" />
                     </Stack>
-                    <Countdown />
-                    <Button
-                        color="red"
-                        variant='light'
-                        component='a'
-                        href="#register"
-                        size="lg"
-                    >
-                        Register Now
-                    </Button>
-                    <Space h="xl" />
-                    <Space h="xl" />
-                </Stack>
-            </Center>
+                </Center>
+            </BackgroundImage>
 
             <Stack w="100%" align="center">
                 <Box id="letters" y="md" />
@@ -113,12 +122,12 @@ const Countdown = () => {
 
     return (
         <Group>
-            <Code fz="xl">{[
+            <Title order={2}>{[
                 day,
                 hour,
                 min,
                 sec,
-            ].map(x => (x + "").padStart(2, "0")).join(":")}</Code>
+            ].map(x => (x + "").padStart(2, "0")).join(":")}</Title>
         </Group>
     )
 }
