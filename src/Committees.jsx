@@ -31,7 +31,7 @@ export const CommitteeRender = ({ committee }) => {
                     
                     <List>
                         {committee.bullets.map((bullet, i) => (
-                            <List.Item>
+                            <List.Item key={i}>
                                 {bullet}
                             </List.Item>
                         ))}
@@ -49,7 +49,7 @@ export const CommitteeRender = ({ committee }) => {
                 <Image
                     radius="md"
                     fit="contain"
-                    src={firegif1}
+                    src={committee.img}
                 />
             </SimpleGrid>
         </Stack>

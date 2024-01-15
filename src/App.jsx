@@ -11,43 +11,15 @@ import { CommitteesSection } from './Committees';
 import { RegisterSection } from './Register';
 import { REGISTER_LINK } from './data/data';
 import firegif2 from "./assets/firegif2.gif"
+import metalpipe from "./assets/metalpipe.webm"
 
 const ActualContent = () => {
     return (
-        <Stack align='center'>
+        <Stack align='center' p={0} gap={0}>
             <Box id="" />
-            <BackgroundImage
-                src={firegif2}
-                style={{
-                    backgroundColor: "#fd7e14f5",
-                    backgroundBlendMode: "luminosity",
-                }}
-            >
-                <Center h="90vh">
-                    <Stack align="center">
-                        <Title order={2}>ÖAAL</Title>
-                        <LogoWrapper />
-                        <Stack gap="sm" align="center">
-                            <Title order={2}>MUN</Title>
-                            <Title>Burn The Order</Title>
-                        </Stack>
-                        <Countdown />
-                        <Button
-                            color="red"
-                            variant='light'
-                            component='a'
-                            href="#register"
-                            size="lg"
-                        >
-                            Register Now
-                        </Button>
-                        <Space h="xl" />
-                        <Space h="xl" />
-                    </Stack>
-                </Center>
-            </BackgroundImage>
+            <Intro />
 
-            <Stack w="100%" align="center">
+            <Stack w="100%" p="md" align="center">
                 <Box id="letters" y="md" />
                 <Space h="10vh" />
                 <Divider label="LETTERS" w="80%" />
@@ -69,18 +41,68 @@ const ActualContent = () => {
                 <RegisterSection />
 
             </Stack>
-
-
             <Space h="50vh" />
             <Credits />
         </Stack>
     );
 }
 
+const Intro = () => {
+    const [loaded, setLoaded] = useState(false);
+
+    return (
+        <BackgroundImage
+            src={firegif2}
+            onLoad={() => setLoaded(true)}
+            style={loaded ? ({
+                backgroundColor: "#fd7e14f5",
+                backgroundBlendMode: "luminosity",
+            }) : ({})}
+        >
+            <Center h="90vh">
+                <Stack align="center">
+                    <Title order={2}>ÖAAL</Title>
+                    <LogoWrapper />
+                    <Stack gap="sm" align="center">
+                        <Title order={2}>MUN</Title>
+                        <Title>Burn The Order</Title>
+                    </Stack>
+                    <Countdown />
+                    <Button
+                        color="red"
+                        variant='light'
+                        component='a'
+                        href="#register"
+                        size="md"
+                    >
+                        Register Now
+                    </Button>
+                </Stack>
+            </Center>
+        </BackgroundImage>
+    )
+}
+
 const Credits = () => {
     return (
-        <Text>
-            Website made by <Anchor href='https://thealan404.github.io/' target="_blank">dennis</Anchor>
+        <Text mb="md" pb="md">
+            Website made by
+            {" "}
+            <Anchor
+                href='https://thealan404.github.io/'
+                target="_blank">
+                dennis
+            </Anchor>
+            {" "}
+            using love, pain and
+            {" "}
+            <Anchor
+                onClick={() => {
+                    new Audio(metalpipe).play();
+                }}
+            >
+                suffering
+            </Anchor>
         </Text>
     )
 }
@@ -139,7 +161,6 @@ const App = () => {
         <AppShell
             header={{ height: "10vh" }}
             navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
-            padding="md"
         >
             <AppShell.Header>
                 <Group h="100%" px="md">
@@ -167,7 +188,7 @@ const App = () => {
 const LogoWrapper = () => {
     return (
         <div className='big-on-hover'>
-            <Logo size="200vh" />
+            <Logo size="100vh" />
         </div>
     );
 };
@@ -203,6 +224,7 @@ const NavbarButtons = () => {
                     variant='light'
                     component='a'
                     href={"#" + a.split("#")[1]}
+                    key={i}
                 >
                     {a.split("#")[0]}
                 </Button>

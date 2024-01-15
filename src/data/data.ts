@@ -1,3 +1,9 @@
+import unsc from "../assets/unsc.jpg"
+import unhcr from "../assets/blm.jpg"
+import ga3sochum from "../assets/ga3sochum.jpg"
+import ga6legal from "../assets/ga6legal.jpg"
+import unwomen from "../assets/unwomen.jpg"
+
 export const ranks = {
     SecretaryGeneral: "Secretary General",
     DeputySecretaryGeneral: "Deputy Secretary General",
@@ -210,6 +216,7 @@ export const letters = [
 export const committees = [
     {
         name: "GA3: SOCHUM",
+        img: ga3sochum,
         bullets: [
             "Preservation of Rights and Facilitation of Participation for Cultural, Ethnic and Linguistic Minorities",
         ],
@@ -221,6 +228,7 @@ export const committees = [
     },
     {
         name: "GA6: LEGAL",
+        img: ga6legal,
         bullets: [
             "Fostering Cooperation to Counteract the Threat of Terrorism",
         ],
@@ -234,6 +242,7 @@ export const committees = [
     },
     {
         name: "UNWOMEN",
+        img: unwomen,
         bullets: [
             "Enhancing Women's Empowerment through Holistic Education and Support Services"
         ],
@@ -247,6 +256,7 @@ export const committees = [
     },
     {
         name: "UNHCR",
+        img: unhcr,
         bullets: [
             "Return and reintegration of refugees and displace people through the Middle Eastern region"
         ],
@@ -260,6 +270,7 @@ export const committees = [
     },
     {
         name: "UNSC",
+        img: unsc,
         bullets: [
             "Addressing The Issue of Mozambique Insurgency"
         ],
@@ -284,5 +295,41 @@ export const committees = [
         desc: `Четвертый комитет Генеральной Ассамблеи ООН (СПЕЦПОЛ), который занимается расмотрением проблем деколонизации и другие политические конфликты, на этот раз будет обсуждать  палестино-израильский конфликт, который продолжается  десятки лет. Этот конфликт,  унëсший десятки тысяч жизней мирного населения  с 1947 года и проходящий в наши дни острую фазу своего развития,  будет главным вопросом повестки дня  Четвертого комитета Генеральной Ассамблеи ООН СПЕЦПОЛ. Члены комитета попытаются найти решение этой актуальной проблемы путем продуктивной дискуссии.`,
     }
 ]
+
+export const plans = [
+    {
+        name: "Delegate",
+        regular: 500,
+        late: 530,
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSdlKc1-t3MuNPLuINjCUFs0p0LVVmQ-2VoY9KN21P_H-OgDOQ/viewform?usp=sf_link",
+    },
+    {
+        name: "Delegation",
+        regular: 490,
+        late: 520,
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSdXw9jSht5C0lcg2oKgpxked8UILfXbmdW4LvJdCSC71ooIyw/viewform?usp=sf_link",
+    },
+    {
+        name: "Chairboard Member",
+        regular: 380,
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSdRy3ewDLKO-w6tcXiKLRVy-rgXB8GDjg6r7nH15VfiDEOVFA/viewform?usp=sf_link",
+    },
+    {
+        name: "Press Member",
+        regular: 380,
+        late: 400,
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSc9leya-OiboU1WD3iagYn1dX25N3KCdnHwEyU0PluYWyLT-Q/viewform?usp=sf_link",
+    },
+    {
+        name: "Crises Member",
+        regular: 380,
+        late: 400,
+        link: "",
+    },
+    {
+        name: "Visitor",
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSekwlQpOlK0Ns21AqkRHXRan0mLK0pb-G8zU0GQen-ODQ5fNA/viewform?usp=sf_link",
+    },
+];
 
 export const REGISTER_LINK = "";

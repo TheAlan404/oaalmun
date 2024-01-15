@@ -7,22 +7,19 @@ export const LettersSection = () => {
     let isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
     return (
-        <Accordion defaultValue={"a"}>
-            <Accordion.Item value={"a"} style={{ borderBottom: "none" }}>
-                <Accordion.Control>
-
-                </Accordion.Control>
-                <Accordion.Panel>
-                    <SimpleGrid cols={isMobile ? 1 : 2} style={{ justifyItems: "center" }}>
-                        {letters.map((letter, i) => (
-                            <Letter
-                                key={i}
-                                letter={letter}
-                            />
-                        ))}
-                    </SimpleGrid>
-                </Accordion.Panel>
-            </Accordion.Item>
+        <Accordion w={isMobile ? "100%" : "70%"} defaultValue={["0", "1", "2"]} multiple>
+            {letters.map((letter, i) => (
+                <Accordion.Item value={""+i} key={i} style={{ borderBottom: "none" }}>
+                    <Accordion.Control>
+                        Letter #{i+1}
+                    </Accordion.Control>
+                    <Accordion.Panel>
+                        <Letter
+                            letter={letter}
+                        />
+                    </Accordion.Panel>
+                </Accordion.Item>
+            ))}
         </Accordion>
     )
 }
@@ -38,7 +35,7 @@ export const Letter = ({ letter }) => {
                     <Text>{letter.sign}</Text>
                     <Group align="end">
                         {letter.authors.map((author, i) => (
-                            <Stack gap={0} align="center">
+                            <Stack gap={0} key={i} align={(letter.authors.length == 1) ? "end" : "center"}>
                                 <Title order={4}>{author.name}</Title>
                                 <Text c="dark.2">{author.rank}</Text>
                             </Stack>

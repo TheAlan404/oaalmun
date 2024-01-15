@@ -9,32 +9,35 @@ import { IconVolumeOff } from '@tabler/icons-react';
 import FireWav from "./assets/fire.wav";
 
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 import './other.css';
 import { Ashes } from './Ash';
 
 const PreferencesContext = React.createContext();
 
-const Root = () => {
+export const Root = () => {
     let [pref, setPref] = useSetState({});
     let [audioEnabled, setAudioEnabled] = useState(true);
+    
+    let audioRef = useRef();
 
-    let audioRef = useRef(new Audio(FireWav));
+    if(!audioRef.current) audioRef.current = new Audio(FireWav);
 
     useEffect(() => {
         audioRef.current.loop = true;
-        if (audioRef.current.paused) {
-            audioRef.current.play()
-                .catch(err => {
-                    window.onclick = () => {
-                        audioRef.current.play();
-                        window.onclick = ()=>{};
-                    };
-                });
+        audioRef.current.play();
+
+        return () => {
+            audioRef.current.pause();
         }
-    }, [audioRef.current]);
+    }, []);
 
     useEffect(() => {
-        audioRef.current.muted = !audioEnabled;
+        if(audioEnabled) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+        }
     }, [audioEnabled]);
 
     return (
@@ -47,7 +50,9 @@ const Root = () => {
                 zIndex: 999,
             }}>
                 <Group>
-                    <Tooltip label={audioEnabled ? "Play fire sounds" : "Mute fire sounds"} color="dark">
+                    <Tooltip label={audioEnabled ? "Play fire sounds" : "Mute fire sounds"} color="dark" style={{
+                        color: "white"
+                    }}>
                         <ActionIcon
                             radius="xl"
                             size="xl"
@@ -62,39 +67,6 @@ const Root = () => {
                 </Group>
             </Affix>
         </PreferencesContext.Provider>
-    );
-};
-
-const Particles = () => {
-    const [particles, setParticles] = useState([]);
-
-    useEffect(() => {
-        const particleInterval = setInterval(() => {
-            const newParticle = {
-                id: Date.now(),
-                left: Math.random() * 99 + 'vw',
-                direction: Math.random() > 0.5 ? 1 : -1,
-            };
-
-            setParticles(prevParticles => [...prevParticles, newParticle]);
-
-            setTimeout(() => {
-                setParticles(prevParticles => prevParticles.filter(p => p.id !== newParticle.id));
-            }, 1000); // Adjust the time particles should exist (in milliseconds)
-        }, 20);
-
-        return () => clearInterval(particleInterval);
-    }, []);
-
-    return (
-        <div className="particle-container">
-          {particles.map(particle => (
-            <div key={particle.id} className="particle" style={{
-                left: particle.left,
-                bottom: 10,
-            }} />
-          ))}
-        </div>
     );
 };
 
