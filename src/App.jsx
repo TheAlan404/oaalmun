@@ -1,13 +1,21 @@
-import { AppShell, Group, Burger, Box, Center, Container, Paper, Transition, Stack, Title, Text, Divider, Button, Space } from '@mantine/core'
+import { AppShell, Group, Burger, Box, Center, Container, Paper, Transition, Stack, Title, Text, Divider, Button, Space, Anchor, Code } from '@mantine/core'
 import { UnstyledButton } from '@mantine/core';
 import { useDisclosure, useHover } from '@mantine/hooks';
 
 import IconSVG from "./assets/icon_noblacks.svg";
+import { PeopleSection } from './People';
+import { LettersSection } from './Letters';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { CommitteesSection } from './Committees';
+import { RegisterSection } from './Register';
+import { REGISTER_LINK } from './data/data';
 
 const ActualContent = () => {
     return (
-        <Stack>
-            <Center h="90vh">
+        <Stack align='center'>
+            <Box id="" />
+            <Center h="60vh">
                 <Stack align="center">
                     <Title order={2}>ÖAAL</Title>
                     <LogoWrapper />
@@ -15,47 +23,104 @@ const ActualContent = () => {
                         <Title order={2}>MUN</Title>
                         <Title>Burn The Order</Title>
                     </Stack>
-                    <Text>blabla bla</Text>
+                    <Countdown />
+                    <Button
+                        color="red"
+                        variant='light'
+                        component='a'
+                        href="#register"
+                        size="lg"
+                    >
+                        Register Now
+                    </Button>
                     <Space h="xl" />
                     <Space h="xl" />
                 </Stack>
             </Center>
 
-            <Divider />
+            <Stack w="100%" align="center">
+                <Box id="letters" y="md" />
+                <Space h="10vh" />
+                <Divider label="LETTERS" w="80%" />
+                <LettersSection />
 
-            <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Illo assumenda et rerum officia omnis, maxime commodi corporis aspernatur quas,
-                itaque sapiente nisi adipisci. Fuga corporis quidem numquam eum voluptate fugiat?
-            </Text>
+                <Box id="crew" />
+                <Space h="10vh" />
+                <Divider label="CREW" w="80%" />
+                <PeopleSection />
 
-            <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Illo assumenda et rerum officia omnis, maxime commodi corporis aspernatur quas,
-                itaque sapiente nisi adipisci. Fuga corporis quidem numquam eum voluptate fugiat?
-            </Text>
+                <Box id="committees" y="md" />
+                <Space h="10vh" />
+                <Divider label="COMMITTEES" w="80%" />
+                <CommitteesSection />
 
-            <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Illo assumenda et rerum officia omnis, maxime commodi corporis aspernatur quas,
-                itaque sapiente nisi adipisci. Fuga corporis quidem numquam eum voluptate fugiat?
-            </Text>
+                <Box id="register" y="md" />
+                <Space h="10vh" />
+                <Divider label="REGISTER" w="80%" />
+                <RegisterSection />
 
-            <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Illo assumenda et rerum officia omnis, maxime commodi corporis aspernatur quas,
-                itaque sapiente nisi adipisci. Fuga corporis quidem numquam eum voluptate fugiat?
-            </Text>
+            </Stack>
 
-            <Text>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Illo assumenda et rerum officia omnis, maxime commodi corporis aspernatur quas,
-                itaque sapiente nisi adipisci. Fuga corporis quidem numquam eum voluptate fugiat?
-            </Text>
 
-            <Space h="xl" />
+            <Space h="50vh" />
+            <Credits />
         </Stack>
     );
+}
+
+const Credits = () => {
+    return (
+        <Text>
+            Website made by <Anchor href='https://thealan404.github.io/' target="_blank">dennis</Anchor>
+        </Text>
+    )
+}
+
+const finalDay = new Date(2024, 2, 1, 0, 0, 0, 0);
+
+const Countdown = () => {
+    let [isNewYear, setIsNewYear] = useState(false);
+    let [day, setDay] = useState("");
+    let [hour, setHour] = useState("");
+    let [min, setMin] = useState("");
+    let [sec, setSec] = useState("");
+
+    const oneDay = 24 * 60 * 60 * 1000;
+
+    useEffect(() => {
+        let int = setInterval(() => {
+            let past = new Date().getTime() >= finalDay;
+            setIsNewYear(past);
+
+            const diffDays = Math.round(Math.abs((new Date() - finalDay) / oneDay));
+            setDay(diffDays);
+
+            if (past) {
+                setHour(new Date().getHours());
+                setMin(new Date().getMinutes());
+                setSec(new Date().getSeconds());
+            } else {
+                setHour(23 - new Date().getHours());
+                setMin(59 - new Date().getMinutes());
+                setSec(59 - new Date().getSeconds());
+            }
+        }, 500);
+
+        return () => {
+            clearInterval(int);
+        };
+    }, []);
+
+    return (
+        <Group>
+            <Code fz="xl">{[
+                day,
+                hour,
+                min,
+                sec,
+            ].map(x => (x + "").padStart(2, "0")).join(":")}</Code>
+        </Group>
+    )
 }
 
 const App = () => {
@@ -117,8 +182,32 @@ const NavbarLogoButton = () => {
 
 const NavbarButtons = () => {
     return (
-        <></>
+        <Group mx="md">
+            {[
+                "Home#",
+                "Letters#letters",
+                "Crew#crew",
+                "Committees#committees",
+            ].map((a, i) => (
+                <Button
+                    color='gray'
+                    variant='light'
+                    component='a'
+                    href={"#" + a.split("#")[1]}
+                >
+                    {a.split("#")[0]}
+                </Button>
+            ))}
+            <Button
+                color="red"
+                variant='light'
+                component='a'
+                href="#register"
+            >
+                Register Now
+            </Button>
+        </Group>
     )
-} 
+}
 
 export default App

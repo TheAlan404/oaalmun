@@ -6,3 +6,11 @@
 .big-on-hover:hover {
     transform: scale(1.3);
 }
+
+:root {
+    --mantine-color-body: black !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
