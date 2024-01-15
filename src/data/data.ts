@@ -323,10 +323,10 @@ export const plans = [
         link: "https://docs.google.com/forms/d/e/1FAIpQLSc9leya-OiboU1WD3iagYn1dX25N3KCdnHwEyU0PluYWyLT-Q/viewform?usp=sf_link",
     },
     {
-        name: "Crises Member",
+        name: "Crisis Member",
         regular: 380,
         late: 400,
-        link: "",
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSf1fx-PKAzO4VwD5mlrjfBQcHnW_zTebwKEKCpXxD3YswE3sw/viewform?usp=sf_link",
     },
     {
         name: "Visitor",
