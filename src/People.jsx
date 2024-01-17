@@ -42,7 +42,7 @@ export const PersonRender = ({ person }) => {
         <Stack align="center" ta="center">
             <Avatar
                 size="xl"
-                src={"/oaalmun/crew/" + person.name + ".jpg"}
+                src={"/crew/" + person.name + ".jpg"}
             />
 
             <Title order={4}>{person.name}</Title>
