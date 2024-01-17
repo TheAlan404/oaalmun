@@ -217,7 +217,7 @@ export const letters = [
 export const committees = [
     {
         name: "GA3: SOCHUM",
-        img: ga3sochum,
+        img: unhcr,
         bullets: [
             "Preservation of Rights and Facilitation of Participation for Cultural, Ethnic and Linguistic Minorities",
         ],
@@ -257,7 +257,7 @@ export const committees = [
     },
     {
         name: "UNHCR",
-        img: unhcr,
+        img: ga3sochum,
         bullets: [
             "Return and reintegration of refugees and displace people through the Middle Eastern region"
         ],
