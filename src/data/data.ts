@@ -1,5 +1,5 @@
 import unsc from "../assets/unsc.jpg"
-import unhcr from "../assets/blm.jpg"
+import unhcr from "../assets/unhcr.jpg"
 import ga3sochum from "../assets/ga3sochum.jpg"
 import ga6legal from "../assets/ga6legal.jpg"
 import unwomen from "../assets/unwomen.jpg"
@@ -15,6 +15,8 @@ export const ranks = {
     DeputyHeadOfAdmin: "Deputy Head Of Admin",
     HeadOfLogistics: "Head Of Logistics",
     HeadOfPress: "Head Of Press",
+    HeadOfIT: "Head Of IT",
+    DeputyHeadOfIT: "Deputy Head Of IT",
     HeadOfSecurity: "Head Of Security",
     AcademicAdvisor: "Academic Advisor",
     UnderSecrataryGeneral: "Under Secratary General",
@@ -39,8 +41,10 @@ export const rankGroups = [
             ranks.HeadOfAdmin,
             ranks.DeputyHeadOfAdmin,
             ranks.HeadOfLogistics,
+            ranks.HeadOfSecurity,
+            ranks.HeadOfIT,
+            ranks.DeputyHeadOfAdmin,
             ranks.HeadOfPress,
-            ranks.HeadOfSecurity
         ],
     },
 ]
@@ -104,10 +108,6 @@ export const people: Person[] = [
         name: "Ecrin Muriç"
     },
     {
-        rank: ranks.AcademicAdvisor,
-        name: "Arda Türk",
-    },
-    {
         rank: ranks.UnderSecrataryGeneral,
         name: "Talha Gönül"
     },
@@ -154,6 +154,14 @@ export const people: Person[] = [
     {
         rank: ranks.AcademicAssistant,
         name: "Abdurrahman Yenipınar"
+    },
+    {
+        rank: ranks.HeadOfIT,
+        name: "Esma Şanlı"
+    },
+    {
+        rank: ranks.DeputyHeadOfIT,
+        name: "Beyza Yüksel"
     },
 ]
 
@@ -217,7 +225,7 @@ export const letters = [
 export const committees = [
     {
         name: "GA3: SOCHUM",
-        img: unhcr,
+        img: ga3sochum,
         bullets: [
             "Preservation of Rights and Facilitation of Participation for Cultural, Ethnic and Linguistic Minorities",
         ],
@@ -257,7 +265,7 @@ export const committees = [
     },
     {
         name: "UNHCR",
-        img: ga3sochum,
+        img: unhcr,
         bullets: [
             "Return and reintegration of refugees and displace people through the Middle Eastern region"
         ],
