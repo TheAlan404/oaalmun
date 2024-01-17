@@ -167,7 +167,7 @@ const Countdown = () => {
 }
 
 const App = () => {
-    const [opened, { toggle }] = useDisclosure();
+    const [opened, { toggle, close }] = useDisclosure();
 
     return (
         <AppShell
@@ -187,7 +187,7 @@ const App = () => {
             </AppShell.Header>
 
             <AppShell.Navbar py="md" px={4}>
-                <NavbarButtons />
+                <NavbarButtons isMobile onClick={() => close()} />
             </AppShell.Navbar>
 
             <AppShell.Main>
@@ -222,9 +222,11 @@ const NavbarLogoButton = () => {
     );
 }
 
-const NavbarButtons = () => {
+const NavbarButtons = ({ onClick, isMobile }) => {
+    let Comp = isMobile ? Stack : Group;
+
     return (
-        <Group mx="md">
+        <Comp mx="md">
             {[
                 "Home#",
                 "Letters#letters",
@@ -238,6 +240,7 @@ const NavbarButtons = () => {
                     variant='light'
                     component='a'
                     href={"#" + a.split("#")[1]}
+                    onClick={() => onClick?.()}
                     key={i}
                 >
                     {a.split("#")[0]}
@@ -248,10 +251,11 @@ const NavbarButtons = () => {
                 variant='light'
                 component='a'
                 href="#register"
+                onClick={() => onClick?.()}
             >
                 Register Now
             </Button>
-        </Group>
+        </Comp>
     )
 }
 
