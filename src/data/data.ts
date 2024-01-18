@@ -18,6 +18,7 @@ export const ranks = {
     HeadOfIT: "Head Of IT",
     DeputyHeadOfIT: "Deputy Head Of IT",
     HeadOfSecurity: "Head Of Security",
+    HeadOfCrisis: "Head Of Crisis",
     AcademicAdvisor: "Academic Advisor",
     UnderSecrataryGeneral: "Under Secratary General",
     AcademicAssistant: "Academic Assistant",
@@ -42,6 +43,7 @@ export const rankGroups = [
             ranks.DeputyHeadOfAdmin,
             ranks.HeadOfLogistics,
             ranks.HeadOfSecurity,
+            ranks.HeadOfCrisis,
             ranks.HeadOfIT,
             ranks.DeputyHeadOfAdmin,
             ranks.HeadOfPress,
@@ -162,6 +164,10 @@ export const people: Person[] = [
     {
         rank: ranks.DeputyHeadOfIT,
         name: "Beyza Yüksel"
+    },
+    {
+        rank: ranks.HeadOfCrisis,
+        name: "Berfin Kılınçaslan",
     },
 ]
 
