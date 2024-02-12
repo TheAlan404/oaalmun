@@ -1,7 +1,7 @@
 import unsc from "../assets/unsc.jpg"
 import unhcr from "../assets/unhcr.jpg"
 import ga3sochum from "../assets/ga3sochum.jpg"
-import ga6legal from "../assets/ga6legal.jpg"
+//import ga6legal from "../assets/ga6legal.jpg"
 import unwomen from "../assets/unwomen.jpg"
 import russian from "../assets/russian.jpg"
 
@@ -243,7 +243,7 @@ export const committees = [
     },
     {
         name: "GA6: LEGAL",
-        img: ga6legal,
+        img: "", //ga6legal,
         bullets: [
             "Fostering Cooperation to Counteract the Threat of Terrorism",
         ],
