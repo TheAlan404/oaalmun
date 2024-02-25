@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { CommitteesSection } from './Committees';
 import { RegisterSection } from './Register';
-import { REGISTER_LINK } from './data/data';
 import firegif2 from "./assets/firegif2.gif"
 import metalpipe from "./assets/metalpipe.webm"
 import { Venue } from './Venue';

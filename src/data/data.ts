@@ -228,28 +228,39 @@ export const letters = [
     }
 ]
 
-export const committees = [
+export interface Committee {
+    name: string,
+    desc: string,
+    img: string,
+    pdf: string,
+    bullets: string[],
+    people: Person[],
+}
+
+export const committees: Committee[] = [
     {
         name: "GA3: SOCHUM",
         img: ga3sochum,
+        pdf: "SOCHUM",
         bullets: [
             "Preservation of Rights and Facilitation of Participation for Cultural, Ethnic and Linguistic Minorities",
         ],
         people: [
-            people.find(x => x.name == "Talha Gönül"),
-            people.find(x => x.name == "Kaan Çekiçi"),
+            people.find(x => x.name == "Talha Gönül")!,
+            people.find(x => x.name == "Kaan Çekiçi")!,
         ],
         desc: `The Social, Humanitarian, and Cultural Committee (SOCHUM) promotes cultural and humanitarian options, international cooperation and focuses on human rights. At OAALMUN’24 delegates will approach human rights discussions from a different perspective. From the perspective of those discriminated against due to their ethnic structure and oppressed by their neighbors who have coexisted in the same land for generations. From the perspective of those who are at risk of losing their culture and are no longer allowed to speak or study in their native language. In this committee, delegates will discuss to preserve the rights of cultural, ethnic, and linguistic minorities and to facilitate their participation.`,
     },
     {
         name: "GA6: LEGAL",
         img: "", //ga6legal,
+        pdf: "LEGAL",
         bullets: [
             "Fostering Cooperation to Counteract the Threat of Terrorism",
         ],
         people: [
-            people.find(x => x.name == "Ensar Kırgız"),
-            people.find(x => x.name == "Afnan Dhia Fatiha"),
+            people.find(x => x.name == "Ensar Kırgız")!,
+            people.find(x => x.name == "Afnan Dhia Fatiha")!,
         ],
         desc: `The Sixth Committee, officially known as the Legal Committee, is one of the main committees of the General Assembly responsible for addressing legal issues. Its mandate includes considering legal questions, reviewing the work of the International Law Commission, and examining draft conventions and treaties. The committee plays a vital role in the development and codification of international law, providing a forum for member states to discuss and negotiate legal matters within the framework of the United Nations.
         
@@ -258,12 +269,13 @@ export const committees = [
     {
         name: "UNWOMEN",
         img: unwomen,
+        pdf: "UNWOMEN",
         bullets: [
             "Enhancing Women's Empowerment through Holistic Education and Support Services"
         ],
         people: [
-            people.find(x => x.name == "Layan Rajoub"),
-            people.find(x => x.name == "Ceyda Gürsoy"),
+            people.find(x => x.name == "Layan Rajoub")!,
+            people.find(x => x.name == "Ceyda Gürsoy")!,
         ],
         desc: `UNWOMEN, also known as The United Nations Entity for Gender Equality and the Empowerment of Women, is a committee under UN which was found in 2010. Its aim is to work for gender equality, empowering and protecting the rights of girls and women from all around the world.
 
@@ -272,11 +284,12 @@ export const committees = [
     {
         name: "UNHCR",
         img: unhcr,
+        pdf: "UNHCR",
         bullets: [
             "Return and reintegration of refugees and displace people through the Middle Eastern region"
         ],
         people: [
-            people.find(x => x.name == "Zeynep Rüya Özdemir"),
+            people.find(x => x.name == "Zeynep Rüya Özdemir")!,
         ],
         desc: `Ladies and gentlemen, distinguished delegates and fellow guests,
         Welcome to United Nations High Commissioner for Refugees (UNHCR), a commission which ensures that everybody has the right to seek asylum and find safe refuge, having fled violence, persecution or war at home.
@@ -286,12 +299,13 @@ export const committees = [
     {
         name: "UNSC",
         img: unsc,
+        pdf: "UNSC",
         bullets: [
             "Addressing The Issue of Mozambique Insurgency"
         ],
         people: [
-            people.find(x => x.name == "Tuğba Sevdenur Karataş"),
-            people.find(x => x.name == "Taha Gani Çalışkan"),
+            people.find(x => x.name == "Tuğba Sevdenur Karataş")!,
+            people.find(x => x.name == "Taha Gani Çalışkan")!,
         ],
         desc: `The United Nations Security Council (UNSC), comprising 15 members, including five permanent ones with veto power, is charged with preserving international peace. With responsibilities varying from conflict resolution to authorizing peacekeeping missions and charging sanctions, the UNSC holds significant influence. It's decisions require at least nine affirmative votes, with the concurrence of all permanent members. The UNSC's authority to deploy military force underscores its key role in addressing global threats, though discussions continue about its structure and representation.
 
@@ -300,13 +314,14 @@ export const committees = [
     {
         name: "Четвёртый комитет СПЕЦПОЛ",
         img: russian,
+        pdf: "RUSSIAN",
         bullets: [
             "Смягчение последствий нарушений прав человека в израильско-палестинском конфликте",
         ],
         people: [
-            people.find(x => x.name == "Alim Ezhiev"),
-            people.find(x => x.name == "Yuşa Akçahan Ateş"),
-            people.find(x => x.name == "Abdurrahman Yenipınar"),
+            people.find(x => x.name == "Alim Ezhiev")!,
+            people.find(x => x.name == "Yuşa Akçahan Ateş")!,
+            people.find(x => x.name == "Abdurrahman Yenipınar")!,
         ],
         desc: `Четвертый комитет Генеральной Ассамблеи ООН (СПЕЦПОЛ), который занимается расмотрением проблем деколонизации и другие политические конфликты, на этот раз будет обсуждать  палестино-израильский конфликт, который продолжается  десятки лет. Этот конфликт,  унëсший десятки тысяч жизней мирного населения  с 1947 года и проходящий в наши дни острую фазу своего развития,  будет главным вопросом повестки дня  Четвертого комитета Генеральной Ассамблеи ООН СПЕЦПОЛ. Члены комитета попытаются найти решение этой актуальной проблемы путем продуктивной дискуссии.`,
     }
@@ -347,5 +362,3 @@ export const plans = [
         link: "https://docs.google.com/forms/d/e/1FAIpQLSekwlQpOlK0Ns21AqkRHXRan0mLK0pb-G8zU0GQen-ODQ5fNA/viewform?usp=sf_link",
     },
 ];
-
-export const REGISTER_LINK = "";

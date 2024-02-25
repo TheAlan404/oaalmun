@@ -1,4 +1,4 @@
-import { Accordion, Group, Image, List, SimpleGrid, Space, Stack, Text, Title, useMantineTheme } from "@mantine/core"
+import { Accordion, Button, Group, Image, List, SimpleGrid, Space, Stack, Text, Title, useMantineTheme } from "@mantine/core"
 import { committees } from "./data/data"
 import { useMediaQuery } from "@mantine/hooks"
 import firegif1 from "./assets/firegif1.gif"
@@ -20,6 +20,10 @@ export const CommitteesSection = () => {
     )
 }
 
+/**
+ * 
+ * @param {{ committee: import("./data/data").Committee }} param0
+ */
 export const CommitteeRender = ({ committee }) => {
     let theme = useMantineTheme();
     let isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
@@ -45,6 +49,16 @@ export const CommitteeRender = ({ committee }) => {
                             </Stack>
                         ))}
                     </Group>
+                    <Button
+                        fullWidth
+                        component="a"
+                        href={"/stg/" + committee.pdf + ".pdf"}
+                        target="_blank"
+                        color="gray"
+                        variant="light"
+                    >
+                        {committee.name} Study Guide
+                    </Button>
                 </Stack>
                 <Image
                     radius="md"
